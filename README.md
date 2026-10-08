@@ -2,8 +2,8 @@
 
 A web tool that finds the nearest health facilities in Uganda, built after auditing the public dataset behind it. The audit is the main result: more than half of the records have placeholder coordinates, and removing them would drop most government facilities.
 
-**Live demo:** https://healthbridge-uganda.onrender.com (free hosting, so the first visit after a quiet period can take up to a minute to load)
-**Data audit page:** https://healthbridge-uganda.onrender.com/visualization
+**Live demo:** https://healthbridge-facility-finder.onrender.com/ (free hosting, so the first visit after a quiet period can take up to a minute to load)
+**Data audit page:** https://healthbridge-facility-finder.onrender.com/audit
 
 > **Research prototype, not for emergencies.** The data is unverified and may be out of date. Call a facility before you travel.
 
