@@ -1,0 +1,15 @@
+<style>
+  .site-header { display:flex; align-items:center; justify-content:space-between; padding:12px 5%; background:#fff; border-bottom:1px solid #d5dde1; box-shadow:0 4px 6px rgba(0,0,0,.06); position:sticky; top:0; z-index:1000; }
+  .site-header img { height:44px; display:block; }
+  .site-nav { display:flex; gap:8px; }
+  .site-nav a { text-decoration:none; color:#12263f; font-weight:600; font-size:16px; padding:8px 12px; border-radius:4px; }
+  .site-nav a:hover { color:#2c7be5; background:rgba(44,123,229,.1); }
+</style>
+<header class="site-header">
+  <a href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='healthbridgelogo.jpeg') }}" alt="HealthBridge home"></a>
+  <nav class="site-nav" aria-label="Main">
+    {% for endpoint, label in [('home', 'Home'), ('find', 'Find a facility'), ('visualization', 'Data audit')] if endpoint != request.endpoint %}
+    <a href="{{ url_for(endpoint) }}">{{ label }}</a>
+    {% endfor %}
+  </nav>
+</header>

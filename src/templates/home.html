@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="HealthBridge - Find the best healthcare providers near you with ratings and comprehensive information">
+    <meta name="description" content="HealthBridge - Find health facilities near you in Uganda by location and service">
     <title>HealthBridge - Your Personal Healthcare Navigator</title>
     <style>
         :root {
@@ -214,118 +214,86 @@
 </head>
 <body>
 
-    <header class="top-container">
-        <div class="logo">
-            <a href="/index">
-                <img src="{{ url_for('static', filename='healthbridgelogo.jpeg') }}" alt="HealthBridge Logo">
-            </a>
-        </div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="{{ url_for('preprocess') }}">Pre-process</a></li>
-            <li><a href="{{ url_for('visualization') }}">Visualization</a></li>
-            <li><a href="{{ url_for('retrain') }}">Re-train</a></li>
-            <li><a href="{{ url_for('predict') }}">Predict</a></li>
-            </ul>
-        </nav>
-    </header>
-    
+    {% include '_header.html' %}
+
     <section class="hero">
         <div class="hero-content">
-            <h1>Find Quality Healthcare Near You</h1>
-            <p>HealthBridge connects you with the best healthcare providers based on your location, needs, and preferences. Get personalized recommendations at the click of a button.</p>
-            <a href="/predict" class="cta-button">Find Providers Now</a>
+            <h1>Find Healthcare Near You</h1>
+            <p>Search health facilities across Uganda by your location, the service you need and the type of facility. See how far each one is, what it offers, and its opening hours and phone number where they are listed.</p>
+            <a href="{{ url_for('find') }}" class="cta-button">Find a Facility</a>
         </div>
         <img src="{{ url_for('static', filename='tourism-concept-smartphone-displaying-gps-street-road-map-navigation_896558-41929.avif') }}" alt="Maps on phone" class="hero-image">
     </section>
-    
+
     <section class="features">
-        <h2>Why Choose HealthBridge?</h2>
+        <h2>What HealthBridge Does</h2>
         <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-icon">
                     <i class="fas fa-map-marker-alt"></i>
                 </div>
                 <h3>Location-Based</h3>
-                <p>Find healthcare providers near your current location or any area you specify. We prioritize convenience without compromising quality.</p>
+                <p>Share your phone's location or type your subcounty, and see the nearest facilities with their distance from you.</p>
             </div>
-            
+
             <div class="feature-card">
                 <div class="feature-icon">
-                    <i class="fas fa-star"></i>
+                    <i class="fas fa-stethoscope"></i>
                 </div>
-                <h3>Provider Ratings</h3>
-                <p>Access comprehensive ratings and reviews to make informed decisions about your healthcare providers.</p>
+                <h3>Search by Service</h3>
+                <p>Narrow the results to what you need, such as maternity care, a laboratory, a pharmacy, X-ray or immunisation, and to government or private facilities.</p>
             </div>
-            
+
             <div class="feature-card">
                 <div class="feature-icon">
-                    <i class="fas fa-clock"></i>
+                    <i class="fas fa-phone"></i>
                 </div>
-                <h3>Real-Time Availability</h3>
-                <p>See which providers are available when you need care, whether it's an emergency or scheduled appointment.</p>
+                <h3>Contact Details</h3>
+                <p>Phone numbers, opening hours and ratings are shown where the public data has them. Many facilities have gaps, so call before you travel.</p>
             </div>
-            
+
             <div class="feature-card">
                 <div class="feature-icon">
-                    <i class="fas fa-money-bill-wave"></i>
+                    <i class="fas fa-info-circle"></i>
                 </div>
-                <h3>Payment Options</h3>
-                <p>Filter providers by your preferred payment method - insurance, cash, or other payment plans.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-user-md"></i>
-                </div>
-                <h3>Specialty Care</h3>
-                <p>Find specialists for your specific healthcare needs, from general practitioners to rare specialists.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <h3>Trusted Information</h3>
-                <p>Our data is regularly updated and verified to ensure you get accurate, reliable information.</p>
+                <h3>Open About Its Limits</h3>
+                <p>The data comes from public sources and is incomplete. We leave out facilities whose recorded location looks unreliable, so some real facilities will not appear.</p>
             </div>
         </div>
     </section>
-    
+
     <section class="how-it-works" style="padding: 60px 5%; background-color: #f8f9fa; text-align: center;">
-        <h2 style="font-size: 2.2rem; color: var(--dark-color); margin-bottom: 20px;">How HealthBridge Works</h2>
+        <h2 style="font-size: 2.2rem; color: var(--dark-color); margin-bottom: 20px;">How It Works</h2>
         <div style="max-width: 800px; margin: 0 auto;">
             <div style="display: flex; justify-content: space-between; margin-top: 40px; flex-wrap: wrap;">
                 <div style="flex: 1; min-width: 200px; margin: 15px; padding: 20px; background: white; border-radius: 8px; box-shadow: var(--shadow);">
                     <div style="font-size: 2rem; color: var(--primary-color); margin-bottom: 15px;">1</div>
-                    <h3 style="color: var(--dark-color);">Enter Your Needs</h3>
-                    <p>Tell us your location, required services, preferred time, and payment method.</p>
+                    <h3 style="color: var(--dark-color);">Share Your Location</h3>
+                    <p>Use your phone's location, or type the subcounty or division you are in.</p>
                 </div>
                 <div style="flex: 1; min-width: 200px; margin: 15px; padding: 20px; background: white; border-radius: 8px; box-shadow: var(--shadow);">
                     <div style="font-size: 2rem; color: var(--primary-color); margin-bottom: 15px;">2</div>
-                    <h3 style="color: var(--dark-color);">Get Matched</h3>
-                    <p>Our algorithm analyzes thousands of providers to find your best matches.</p>
+                    <h3 style="color: var(--dark-color);">Choose What You Need</h3>
+                    <p>Pick a service and a type of facility, or leave both open to see everything nearby.</p>
                 </div>
                 <div style="flex: 1; min-width: 200px; margin: 15px; padding: 20px; background: white; border-radius: 8px; box-shadow: var(--shadow);">
                     <div style="font-size: 2rem; color: var(--primary-color); margin-bottom: 15px;">3</div>
-                    <h3 style="color: var(--dark-color);">Choose Your Provider</h3>
-                    <p>Review options and select the healthcare provider that meets your needs.</p>
+                    <h3 style="color: var(--dark-color);">Call Before You Go</h3>
+                    <p>Review the nearest facilities, then phone ahead, because hours and services can be out of date.</p>
                 </div>
             </div>
-            <a href="{{ url_for('predict') }}" class="cta-button" style="margin-top: 50px;">Try It Now</a>
+            <a href="{{ url_for('find') }}" class="cta-button" style="margin-top: 50px;">Try It Now</a>
         </div>
     </section>
-    
+
     <footer>
         <div class="footer-links">
-            <li><a class="active" href="#home">Home</a></li>
-            <li><a href="{{ url_for('preprocess') }}">Pre-process</a></li>
-            <li><a href="{{ url_for('visualization') }}">Visualization</a></li>
-            <li><a href="{{ url_for('retrain') }}">Re-train</a></li>
-            <li><a href="{{ url_for('predict') }}">Predict</a></li>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('find') }}">Find a facility</a>
+            <a href="{{ url_for('visualization') }}">Visualization</a>
         </div>
         <div class="copyright">
-            &copy; 2025 HealthBridge. All rights reserved.
+            &copy; 2026 HealthBridge. All rights reserved.
         </div>
     </footer>
 </body>
